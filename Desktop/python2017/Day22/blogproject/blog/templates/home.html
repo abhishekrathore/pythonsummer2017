@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+{% for post in all_posts %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 jumbotron">
+
+                <div class="col-xs-12 text-right">
+                    {{post.published_at}}
+                </div>
+                <div class="col-xs-12 alert-danger">
+                   <h3> {{post.title}} </h3>
+                </div>
+                <div class="col-xs-12 alert-success">
+                   <a href="{% url 'author' post.user.id %}"><h5> {{post.user.username }}</h5></a>
+                </div>
+                 <div class="col-xs-12">
+                    {{post.content | truncatechars:"255"}}
+                </div>
+                <div class="col-xs-3 col-xs-offset-9">
+                    <a class="btn btn-info" href="{% url 'post' post.id %}">Read More</a>
+                </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endfor %}
+</body>
+</html>

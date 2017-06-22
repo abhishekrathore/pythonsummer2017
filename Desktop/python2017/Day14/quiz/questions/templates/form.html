@@ -1,0 +1,40 @@
+<html>
+<head>
+	<link rel="stylesheet" href="/public/bootstrap.min.css">
+	<title>{{name}} Courses</title>
+</head>
+<body>
+
+<div class="row" style="margin-top:50px">
+	<h1 class="text-center"> Student Registration </h1>
+<div class="col-xs-6 col-xs-offset-3">
+	
+	<form class="row" action="/questions/submit/" method="POST">
+	<div class="col-xs-12">
+	<input class="form-control" type="text" name="first_name" placeholder="first name">
+    </div>
+    <div class="col-xs-12">
+	<input class="form-control" type="text" name="last_name" placeholder="last name">
+	</div>
+	<div class="col-xs-12">
+	<input class="form-control" type="text" name="roll_no" placeholder="rollno">
+    </div>
+	<div class="col-xs-12">
+		<select class="form-control" name="course">
+			{% for sub in subjects %}
+			<option value="{{sub.id}}">{{sub.name}}</option>
+			{% endfor %}
+		</select>	
+	</div>
+
+    <div class="col-xs-8 col-xs-offset-2" style="margin-top:20px">
+	<input class="btn-success form-control" type="submit">
+     </div>
+</form>
+</div>
+</div>
+
+
+</body>
+
+</html>

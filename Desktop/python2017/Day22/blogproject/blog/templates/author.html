@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <a href="{% url 'home' %}" class="col-xs-1 btn btn-info">Home</a>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 jumbotron text-center">
+
+                 <div class="col-xs-12">
+                   <img style="width:100px;height:100px" src="{{author.url}}">
+                </div>
+                <div class="col-xs-12">
+                    <h2>{{author.username}}</h2>
+                </div>
+                <div class="col-xs-12">
+                   <h4> {{author.email}} </h4>
+                </div>
+
+        </div>
+
+            <div class="col-xs-10 col-xs-offset-1">
+            <ul class="list-group">
+                {% for post in posts%}
+                <li class="list-group-item">
+                   <a href="{% url 'post' post.id %}"> {{post.title}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+    </div>
+
+</div>
+</body>
+</html>

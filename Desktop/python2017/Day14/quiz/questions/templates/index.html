@@ -1,0 +1,27 @@
+<html>
+<head>
+	<link rel="stylesheet" href="/public/bootstrap.min.css">
+	<title>{{name}} Courses</title>
+</head>
+<body>
+
+<h1 class="alert alert-danger">{{heading}}</h1>
+
+
+<select class="form-control">
+	{% for sub in subjects %}
+	<option>{{sub.name}}</option>
+	{% endfor %}
+</select>	
+
+
+<ul class="list-group">
+	{% for sub in subjects %}
+	<li class="list-group-item">{{sub.name}}</li>
+	{% endfor %}
+</ul>	
+
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+	<link rel="stylesheet" href="/public/bootstrap.min.css">
+	<title>Success Registration</title>
+</head>
+<body>
+
+<h1>Successfully Registered {{person.first_name}} {{person.last_name}} in {{course.name}}</h1>
+
+
+{% if course.name == "Python" %}
+<img src="/public/python.png">
+{% elif course.name == "NodeJS" %}
+<img src="/public/nodejs.png">
+{% elif course.name == "AngularJS" %}
+<img src="/public/angularjs.jpg">
+{% endif %}
+
+
+<h2>Overall List of Registered Students : </h2>
+<ul>
+	{% for student in registered %}
+	<li>{{student.first_name | upper }} {{student.last_name}} </li>
+	{% endfor %}
+</ul>
+
+
+
+
+
+</body>
+
+</html>
