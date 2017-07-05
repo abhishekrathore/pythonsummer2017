@@ -16,7 +16,7 @@ class User(models.Model):
     username = models.CharField(max_length=255)
     email = models.EmailField(max_length=255,null=False)
     url = models.URLField()
-
+    picture= models.FileField(upload_to="pictures")
 
     def __str__(self):
         return self.username
@@ -27,4 +27,7 @@ class Comment(models.Model):
     user = models.ForeignKey('User',on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.user.username+":"+self.content
 

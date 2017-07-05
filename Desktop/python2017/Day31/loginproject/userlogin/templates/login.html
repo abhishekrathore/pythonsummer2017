@@ -1,0 +1,14 @@
+<form action="{% url 'submit' %}" method="POST">
+    <input type="text" placeholder="firstname" name="first_name">
+    <input type="text" placeholder="lastname" name="last_name">
+    <input type="text" placeholder="username" name="username">
+    <input type="password" placeholder="password" name="password">
+    <input type="submit" value="Sign Up">
+</form>
+
+
+<form action="{% url 'signin' %}" method="POST">
+    <input type="text" placeholder="username" name="username">
+    <input type="password" placeholder="password" name="password">
+    <input type="submit" value="Log In">
+</form>

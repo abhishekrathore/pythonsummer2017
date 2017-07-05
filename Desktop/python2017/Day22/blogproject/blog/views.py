@@ -13,6 +13,11 @@ def posts(request):
     return HttpResponse(template.render(context,request))
 
 
+def user(request):
+    template = loader.get_template("user.html")
+    return HttpResponse(template.render())
+
+
 def post(request,post_id):
     template = loader.get_template("post.html")
     print(post_id)
@@ -36,3 +41,13 @@ def comment_submit(request,post_id):
     comment = Comment(content=text,user_id=author,post_id=post_id)
     comment.save()
     return redirect('post',post_id)
+
+
+@csrf_exempt
+def create_user(request):
+    username = request.POST.get('username')
+    email = request.POST.get('email')
+    picture = request.FILES.get('file')
+    user = User(username=username,email=email,picture=picture)
+    user.save()
+    return redirect('home')
